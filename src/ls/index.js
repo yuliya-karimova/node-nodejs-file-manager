@@ -5,15 +5,20 @@ export const showDirContent = async () => {
   try {
     const fileList = [];
     const folderList = [];
-    const fileToPath = getCurrentDir();
 
-    const dirContentlist = await readdir(fileToPath, { withFileTypes: true });
+    const dirContentlist = await readdir(getCurrentDir(), { withFileTypes: true });
 
     dirContentlist.forEach(item => {
       if (item.isDirectory()) {
-        folderList.push({name: item.name, type: 'directory'});
+        folderList.push({
+          name: item.name,
+          type: 'directory'
+        });
       } else {
-        fileList.push({name: item.name, type: 'file'});
+        fileList.push({
+          name: item.name,
+          type: 'file'
+        });
       }
     })
   

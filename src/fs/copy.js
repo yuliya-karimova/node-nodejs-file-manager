@@ -1,11 +1,19 @@
-import { copyFile as copy } from 'fs/promises';
+import fs from 'fs';
 import { basename, join } from 'path'
 import { handleOperationError } from '../utils/index.js';
 
 export const copyFile = async (pathToOriginFile, pathToTargetFolder) => {
-  try {
-    await copy(pathToOriginFile, join(pathToTargetFolder, basename(pathToOriginFile)))
-  } catch (err) {
-    handleOperationError(err)
-  }
+  const readStream = fs.createReadStream(pathToOriginFile);
+  const writeStream = fs.createWriteStream(join(pathToTargetFolder, basename(pathToOriginFile)));
+
+  readStream.on('error', (err) => {
+    handleOperationError(err);
+  });
+
+  writeStream.on('error', (err) => {
+    handleOperationError(err);
+  });
+
+  readStream.pipe(writeStream);
 };
+

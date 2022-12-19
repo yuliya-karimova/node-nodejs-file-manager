@@ -1,4 +1,4 @@
-import { handleOperationError, showCurrentDir, goToDir } from '../utils/index.js';
+import { handleOperationError, goToDir } from '../utils/index.js';
 
 const upDir = '../';
 

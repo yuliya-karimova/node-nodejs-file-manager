@@ -1,0 +1,19 @@
+{
+  "name": "node-nodejs-file-manager",
+  "version": "1.0.0",
+  "description": "Node JS File Manager",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "start:n": "node src/index.js --username=Yuliya"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuliya-karimova/node-nodejs-file-manager"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Yuliya Karimova (y.o.karimova@gmail.com)",
+  "license": "ISC"
+}
